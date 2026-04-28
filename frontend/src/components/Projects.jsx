@@ -9,6 +9,7 @@ const Projects = () => {
 
   const projects = [
     {
+      id: 'supply-chain',
       title: 'Supply Chain Forecasting & Inventory Optimization',
       description: 'Production-style Python analytics system for demand forecasting, inventory optimization, and risk simulation using the M5 dataset.',
       image: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2Mzl8MHwxfHNlYXJjaHwzfHxzdXBwbHklMjBjaGFpbiUyMGRhc2hib2FyZHxlbnwwfHx8fDE3NzczOTY1Njh8MA&ixlib=rb-4.1.0&q=85',
@@ -25,6 +26,7 @@ const Projects = () => {
       category: ['Forecasting', 'Data Engineering']
     },
     {
+      id: 'infant-mri',
       title: 'Infant MRI ML Suite',
       description: 'Modular clinical AI project for infant brain MRI analysis, age prediction, benchmark evaluation, and biomarker reporting.',
       image: 'https://images.unsplash.com/photo-1758691463165-ca9b5bc2b28a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwYnJhaW4lMjBNUkl8ZW58MHx8fHwxNzc3Mzk2NTc0fDA&ixlib=rb-4.1.0&q=85',
@@ -40,6 +42,7 @@ const Projects = () => {
       category: ['Healthcare AI']
     },
     {
+      id: 'bookbot',
       title: 'BookBot',
       description: 'Book recommendation and conversational discovery project using NLP and semantic search concepts.',
       image: 'https://images.unsplash.com/photo-1568667256549-094345857637?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzV8MHwxfHNlYXJjaHwyfHxib29rJTIwbGlicmFyeXxlbnwwfHx8fDE3NzczOTY1Nzh8MA&ixlib=rb-4.1.0&q=85',
@@ -53,6 +56,7 @@ const Projects = () => {
       category: ['NLP/LLM']
     },
     {
+      id: 'document-classification',
       title: 'Intelligent Document Classification',
       description: 'Machine learning pipeline for automated document classification using text preprocessing and classification models.',
       image: 'https://images.unsplash.com/photo-1552833093-0522172fff1f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA4Mzl8MHwxfHNlYXJjaHwxfHxkb2N1bWVudCUyMHByb2Nlc3Npbmd8ZW58MHx8fHwxNzc3Mzk2NTg0fDA&ixlib=rb-4.1.0&q=85',
@@ -95,8 +99,8 @@ const Projects = () => {
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {filteredProjects.map((project, index) => (
-            <Card key={index} className="border-2 hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          {filteredProjects.map((project) => (
+            <Card key={project.id} className="border-2 hover:shadow-xl transition-shadow duration-300 flex flex-col">
               <div className="overflow-hidden">
                 <img
                   src={project.image}
@@ -106,8 +110,8 @@ const Projects = () => {
               </div>
               <CardHeader>
                 <div className="flex flex-wrap gap-2 mb-3">
-                  {project.tags.map((tag, idx) => (
-                    <Badge key={idx} variant="secondary" className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300">
+                  {project.tags.map((tag) => (
+                    <Badge key={`${project.id}-tag-${tag}`} variant="secondary" className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300">
                       {tag}
                     </Badge>
                   ))}
@@ -120,8 +124,8 @@ const Projects = () => {
                   <div>
                     <h4 className="font-semibold mb-2 text-sm text-muted-foreground">Technologies:</h4>
                     <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech, idx) => (
-                        <span key={idx} className="px-2 py-1 bg-accent rounded text-xs font-mono">
+                      {project.tech.map((tech) => (
+                        <span key={`${project.id}-tech-${tech}`} className="px-2 py-1 bg-accent rounded text-xs font-mono">
                           {tech}
                         </span>
                       ))}
@@ -130,8 +134,8 @@ const Projects = () => {
                   <div>
                     <h4 className="font-semibold mb-2 text-sm text-muted-foreground">Key Highlights:</h4>
                     <ul className="list-disc list-inside space-y-1 text-sm">
-                      {project.highlights.map((highlight, idx) => (
-                        <li key={idx} className="text-muted-foreground">{highlight}</li>
+                      {project.highlights.map((highlight) => (
+                        <li key={`${project.id}-highlight-${highlight.substring(0, 20)}`} className="text-muted-foreground">{highlight}</li>
                       ))}
                     </ul>
                   </div>
