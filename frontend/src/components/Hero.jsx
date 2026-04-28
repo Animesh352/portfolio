@@ -15,7 +15,7 @@ const Hero = () => {
               {!imageError ? (
                 <>
                   <img
-                    src="/portfolio/profile.jpg"
+                    src={`${process.env.PUBLIC_URL}/profile.jpg`}
                     alt="Animesh Giri"
                     loading="lazy"
                     onError={() => setImageError(true)}
@@ -63,7 +63,7 @@ const Hero = () => {
               variant="outline"
               asChild
             >
-              <a href="/portfolio/Animesh_Giri_Resume.pdf" download>
+              <a href={`${process.env.PUBLIC_URL}/Animesh_Giri_Resume.pdf`} download>
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
               </a>

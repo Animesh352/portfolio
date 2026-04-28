@@ -1,9 +1,28 @@
 # 🚀 Deployment Guide for GitHub Pages
 
+## Tech Stack
+
+This portfolio uses:
+- **Create React App (CRA)** with **CRACO** (not Vite)
+- **Build Output**: `build/` folder (not `dist/`)
+- **GitHub Pages**: Deployed from `gh-pages` branch
+
 ## Prerequisites
 - GitHub account (username: Animesh352)
 - Git installed on your machine
 - Node.js 18+ and Yarn installed
+
+## Configuration
+
+The portfolio is configured with:
+```json
+"homepage": "https://Animesh352.github.io/portfolio"
+```
+
+This ensures:
+- All assets are correctly prefixed with `/portfolio/`
+- Routing works on GitHub Pages subpath
+- Images and files load correctly
 
 ## Step-by-Step Deployment Instructions
 
@@ -131,7 +150,12 @@ yarn deploy --verbose
 4. Check the base path in `vite.config.js` matches your repository name
 
 ### Issue: Assets not loading (broken images/CSS)
-**Solution**: The `base: '/portfolio/'` in `vite.config.js` must match your repository name.
+**Solution**: The `homepage` field in `package.json` must match your repository name:
+```json
+"homepage": "https://Animesh352.github.io/portfolio"
+```
+
+All assets will automatically be prefixed with `/portfolio/` during build.
 
 ### Issue: Resume download not working
 **Solution**: 
@@ -145,10 +169,12 @@ yarn deploy --verbose
 cd /app/frontend
 yarn build
 
-# Serve the build locally to test
+# Serve the build locally to test (install serve if needed)
 npx serve -s build -l 3000
 
-# Visit http://localhost:3000/portfolio/
+# The app will be served at: http://localhost:3000
+# Note: Local serving won't include the /portfolio/ prefix,
+# but GitHub Pages will handle it correctly
 ```
 
 ## 🔐 Using Personal Access Token (if needed)

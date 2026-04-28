@@ -8,7 +8,7 @@ Visit: [https://animesh352.github.io/portfolio/](https://animesh352.github.io/po
 
 ## 💻 Tech Stack
 
-- **Frontend**: React 19 + Vite
+- **Frontend**: React 19 + Create React App + CRACO
 - **Styling**: Tailwind CSS
 - **UI Components**: Shadcn/ui
 - **Icons**: Lucide React
@@ -43,6 +43,8 @@ The app will run on `http://localhost:3000`
 yarn build
 ```
 
+The build outputs to the `build/` folder.
+
 ## 📦 Deployment to GitHub Pages
 
 ### One-Time Setup
@@ -71,7 +73,7 @@ yarn deploy
 ```
 
 This will:
-1. Build the production version
+1. Build the production version to `build/` folder
 2. Create/update the `gh-pages` branch
 3. Push the build to GitHub Pages
 
