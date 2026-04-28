@@ -95,6 +95,40 @@ Place your resume PDF at:
 
 The "Download Resume" button will automatically link to this file.
 
+## 📸 Profile Photo
+
+Place your professional headshot at:
+```
+/app/frontend/public/profile.jpg
+```
+
+**Image Specifications:**
+- **Format**: JPG or PNG
+- **Size**: 400x400px to 600x600px (square)
+- **File size**: Under 500KB
+- **Quality**: High-quality professional photo
+- **Background**: Clean, neutral background
+- **Lighting**: Good, even lighting
+
+**What to expect:**
+- Displays as circular image in Hero section
+- Responsive sizing (112px to 160px depending on screen)
+- Subtle border that adapts to dark/light themes
+- Soft shadow effect
+- Lazy loading for performance
+- Graceful fallback if image is missing
+
+After adding your photo:
+```bash
+cd /app
+git add frontend/public/profile.jpg
+git commit -m "Add professional headshot"
+git push origin main
+
+cd /app/frontend
+yarn deploy
+```
+
 ## 🎨 Features
 
 - ✅ Dark/Light theme toggle

@@ -1,12 +1,36 @@
-import React from 'react';
-import { Github, Linkedin, Mail, Download, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Github, Linkedin, Mail, Download, MapPin, User } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Hero = () => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center space-y-8">
+          {/* Profile Image */}
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              {!imageError ? (
+                <>
+                  <img
+                    src="/portfolio/profile.jpg"
+                    alt="Animesh Giri"
+                    loading="lazy"
+                    onError={() => setImageError(true)}
+                    className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full object-cover border-2 border-border shadow-lg"
+                  />
+                  <div className="absolute inset-0 rounded-full ring-1 ring-black/5 dark:ring-white/10"></div>
+                </>
+              ) : (
+                <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 border-2 border-border shadow-lg flex items-center justify-center">
+                  <User className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white/90" />
+                </div>
+              )}
+            </div>
+          </div>
+
           <div className="space-y-4">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
               Animesh Giri

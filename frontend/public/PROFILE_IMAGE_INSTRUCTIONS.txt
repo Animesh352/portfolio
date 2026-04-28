@@ -1,0 +1,37 @@
+=== PROFILE IMAGE SETUP ===
+
+Required File: profile.jpg
+Location: /app/frontend/public/profile.jpg
+
+Specifications:
+- Format: JPG (or PNG)
+- Recommended size: 400x400px to 600x600px
+- Aspect ratio: Square (1:1)
+- File size: Keep under 500KB for performance
+- Quality: High-quality professional headshot
+
+Image Guidelines:
+- Professional attire
+- Neutral or clean background
+- Good lighting
+- Face clearly visible
+- Centered composition
+- Friendly, professional expression
+
+After Adding Your Photo:
+1. Place your image at: /app/frontend/public/profile.jpg
+2. Test locally: yarn start
+3. Commit and deploy: 
+   git add frontend/public/profile.jpg
+   git commit -m "Add professional headshot"
+   git push
+   cd /app/frontend && yarn deploy
+
+The image will automatically:
+- Display as circular with subtle border
+- Adapt to dark/light themes
+- Resize responsively on mobile devices
+- Load lazily for better performance
+
+Current Status: Placeholder needed
+Action: Replace with your professional headshot
