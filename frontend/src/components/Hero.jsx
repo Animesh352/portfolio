@@ -128,13 +128,13 @@ const Hero = () => {
                     alt="Animesh Giri"
                     loading="lazy"
                     onError={() => setImageError(true)}
-                    className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full object-cover border-2 border-border shadow-lg"
+                    className="w-32 h-32 sm:w-44 sm:h-44 lg:w-52 lg:h-52 rounded-full object-cover border-2 border-border shadow-lg"
                   />
                   <div className="absolute inset-0 rounded-full ring-1 ring-black/5 dark:ring-white/10"></div>
                 </>
               ) : (
-                <div className="w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 border-2 border-border shadow-lg flex items-center justify-center">
-                  <User className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-white/90" />
+                <div className="w-32 h-32 sm:w-44 sm:h-44 lg:w-52 lg:h-52 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 border-2 border-border shadow-lg flex items-center justify-center">
+                  <User className="w-14 h-14 sm:w-20 sm:h-20 lg:w-24 lg:h-24 text-white/90" />
                 </div>
               )}
             </div>
