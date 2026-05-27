@@ -5,19 +5,44 @@ import { Button } from './ui/button';
 const Hero = () => {
   const [imageError, setImageError] = useState(false);
 
-  // Floating icon configuration
+  // Floating icon configuration - Dense pattern covering entire background including center
   const leftIcons = [
-    { Icon: Brain, delay: '0s', duration: '20s', top: '15%', left: '10%' },
-    { Icon: Database, delay: '2s', duration: '25s', top: '45%', left: '15%' },
-    { Icon: TrendingUp, delay: '4s', duration: '22s', top: '70%', left: '8%' },
-    { Icon: Network, delay: '1s', duration: '28s', top: '30%', left: '5%' },
+    { Icon: Brain, delay: '0s', duration: '20s', top: '10%', left: '8%' },
+    { Icon: Database, delay: '2s', duration: '25s', top: '25%', left: '12%' },
+    { Icon: TrendingUp, delay: '4s', duration: '22s', top: '40%', left: '6%' },
+    { Icon: Network, delay: '1s', duration: '28s', top: '55%', left: '10%' },
+    { Icon: Brain, delay: '3s', duration: '24s', top: '70%', left: '8%' },
+    { Icon: Database, delay: '5s', duration: '26s', top: '85%', left: '12%' },
+    { Icon: GitBranch, delay: '1.5s', duration: '23s', top: '18%', left: '4%' },
+    { Icon: Network, delay: '4.5s', duration: '27s', top: '48%', left: '14%' },
+    { Icon: TrendingUp, delay: '2.5s', duration: '21s', top: '63%', left: '5%' },
+    { Icon: Cpu, delay: '3.5s', duration: '29s', top: '78%', left: '9%' },
+  ];
+
+  const centerIcons = [
+    { Icon: Network, delay: '1s', duration: '26s', top: '8%', left: '25%' },
+    { Icon: GitBranch, delay: '3s', duration: '24s', top: '8%', right: '25%' },
+    { Icon: Database, delay: '2s', duration: '28s', top: '15%', left: '35%' },
+    { Icon: Terminal, delay: '4s', duration: '23s', top: '15%', right: '35%' },
+    { Icon: Cpu, delay: '0s', duration: '25s', top: '22%', left: '20%' },
+    { Icon: Code2, delay: '2.5s', duration: '27s', top: '22%', right: '20%' },
+    { Icon: Brain, delay: '1.5s', duration: '22s', top: '88%', left: '30%' },
+    { Icon: TrendingUp, delay: '3.5s', duration: '26s', top: '88%', right: '30%' },
+    { Icon: Network, delay: '4.5s', duration: '24s', top: '92%', left: '40%' },
+    { Icon: GitBranch, delay: '0.5s', duration: '28s', top: '92%', right: '40%' },
   ];
 
   const rightIcons = [
-    { Icon: Code2, delay: '1s', duration: '24s', top: '20%', right: '12%' },
-    { Icon: Terminal, delay: '3s', duration: '26s', top: '50%', right: '8%' },
-    { Icon: Cpu, delay: '0s', duration: '23s', top: '75%', right: '15%' },
-    { Icon: GitBranch, delay: '2s', duration: '27s', top: '35%', right: '6%' },
+    { Icon: Code2, delay: '1s', duration: '24s', top: '12%', right: '10%' },
+    { Icon: Terminal, delay: '3s', duration: '26s', top: '27%', right: '6%' },
+    { Icon: Cpu, delay: '0s', duration: '23s', top: '42%', right: '12%' },
+    { Icon: GitBranch, delay: '2s', duration: '27s', top: '57%', right: '8%' },
+    { Icon: Code2, delay: '4s', duration: '25s', top: '72%', right: '11%' },
+    { Icon: Terminal, delay: '1.5s', duration: '28s', top: '87%', right: '7%' },
+    { Icon: Network, delay: '2.5s', duration: '22s', top: '20%', right: '14%' },
+    { Icon: Brain, delay: '3.5s', duration: '24s', top: '50%', right: '5%' },
+    { Icon: Cpu, delay: '4.5s', duration: '26s', top: '65%', right: '13%' },
+    { Icon: GitBranch, delay: '0.5s', duration: '25s', top: '80%', right: '9%' },
   ];
 
   return (
@@ -39,7 +64,30 @@ const Hero = () => {
               }}
             >
               <IconComponent 
-                className="w-12 h-12 text-blue-500/20 dark:text-blue-400/20" 
+                className="w-16 h-16 text-blue-500/50 dark:text-blue-400/30" 
+                strokeWidth={1.5}
+              />
+            </div>
+          );
+        })}
+
+        {/* Center Background Icons */}
+        {centerIcons.map((config, index) => {
+          const IconComponent = config.Icon;
+          return (
+            <div
+              key={`center-${index}`}
+              className="absolute animate-float"
+              style={{
+                top: config.top,
+                left: config.left,
+                right: config.right,
+                animationDelay: config.delay,
+                animationDuration: config.duration,
+              }}
+            >
+              <IconComponent 
+                className="w-16 h-16 text-slate-400/50 dark:text-slate-500/30" 
                 strokeWidth={1.5}
               />
             </div>
@@ -61,7 +109,7 @@ const Hero = () => {
               }}
             >
               <IconComponent 
-                className="w-12 h-12 text-slate-500/20 dark:text-slate-400/20" 
+                className="w-16 h-16 text-slate-500/50 dark:text-slate-400/30" 
                 strokeWidth={1.5}
               />
             </div>
