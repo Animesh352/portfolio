@@ -1,12 +1,73 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, Download, MapPin, User } from 'lucide-react';
+import { Github, Linkedin, Mail, Download, MapPin, User, Brain, Database, TrendingUp, GitBranch, Code2, Terminal, Network, Cpu } from 'lucide-react';
 import { Button } from './ui/button';
 
 const Hero = () => {
   const [imageError, setImageError] = useState(false);
 
+  // Floating icon configuration
+  const leftIcons = [
+    { Icon: Brain, delay: '0s', duration: '20s', top: '15%', left: '10%' },
+    { Icon: Database, delay: '2s', duration: '25s', top: '45%', left: '15%' },
+    { Icon: TrendingUp, delay: '4s', duration: '22s', top: '70%', left: '8%' },
+    { Icon: Network, delay: '1s', duration: '28s', top: '30%', left: '5%' },
+  ];
+
+  const rightIcons = [
+    { Icon: Code2, delay: '1s', duration: '24s', top: '20%', right: '12%' },
+    { Icon: Terminal, delay: '3s', duration: '26s', top: '50%', right: '8%' },
+    { Icon: Cpu, delay: '0s', duration: '23s', top: '75%', right: '15%' },
+    { Icon: GitBranch, delay: '2s', duration: '27s', top: '35%', right: '6%' },
+  ];
+
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center pt-16">
+    <section id="hero" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+      {/* Floating Icons - Hidden on mobile */}
+      <div className="hidden lg:block absolute inset-0 pointer-events-none">
+        {/* Left Side Icons */}
+        {leftIcons.map((config, index) => {
+          const IconComponent = config.Icon;
+          return (
+            <div
+              key={`left-${index}`}
+              className="absolute animate-float"
+              style={{
+                top: config.top,
+                left: config.left,
+                animationDelay: config.delay,
+                animationDuration: config.duration,
+              }}
+            >
+              <IconComponent 
+                className="w-12 h-12 text-blue-500/20 dark:text-blue-400/20" 
+                strokeWidth={1.5}
+              />
+            </div>
+          );
+        })}
+
+        {/* Right Side Icons */}
+        {rightIcons.map((config, index) => {
+          const IconComponent = config.Icon;
+          return (
+            <div
+              key={`right-${index}`}
+              className="absolute animate-float"
+              style={{
+                top: config.top,
+                right: config.right,
+                animationDelay: config.delay,
+                animationDuration: config.duration,
+              }}
+            >
+              <IconComponent 
+                className="w-12 h-12 text-slate-500/20 dark:text-slate-400/20" 
+                strokeWidth={1.5}
+              />
+            </div>
+          );
+        })}
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center space-y-8">
           {/* Profile Image */}
